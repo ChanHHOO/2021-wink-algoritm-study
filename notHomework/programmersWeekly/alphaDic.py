@@ -18,7 +18,6 @@ def solution(word):
             else:
                 correctWord = correctWord[:-1] + alphas[alphas.index(correctWord[-1])+1]
             answer += 1
-    print(answer)
     return answer
 
 solution("UUUUU")

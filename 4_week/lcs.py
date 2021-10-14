@@ -4,7 +4,6 @@ A = sys.stdin.readline().strip()
 B = sys.stdin.readline().strip()
 
 lcs = [[0] * (len(A)+1) for _ in range(len(B)+1)]
-print(lcs)
 
 for i in range(1,len(B)+1) :
   for j in range(1,len(A)+1) :
