@@ -31,6 +31,7 @@ while stack:
         visited.append(node)
         if n in tree[node]:
             fam = tree[node]
+            
         for i in reversed(tree[node]):
             stack.insert(0, i)
 try:
