@@ -1,22 +1,30 @@
-def countNode(graph):
 
-    visit = []
-    visitIdx = 0
-    for i in range(graph):
-        node = graph.pop(0)
-        for j in range(len(graph)):
+def bfs(n, tree):
+    
+    visit = [False for i in range(n)]
+    
+    q = []
 
-            
-        if node[0] >= visit[-1]:
-            visitIdx += 1
+    q.extend(tree[0])
 
-        
+    while q:
+        node = q.pop(0)
+        if visit[node-1] == False:
+            visit[node-1] = True
+
+
+
+            for i in range(len(tree)):
+                if node in tree[i]:
+                    q.extend(tree[i])
+    return abs(visit.count(True) - visit.count(False)) 
 
 def solution(n, wires):
-    answer = -1
-    for i in range(len(wires)):
-        first = countNode(wires[:i] + wires[i+1:])
+    answers = []
 
-    return answer
+    for i in range(n-1):
+        answers.append(bfs(n, wires[:i] + wires[i+1:]))
+    print(answers)
+    return min(answers)
 
-solution(9, [[1,3],[2,3],[3,4],[4,5],[4,6],[4,7],[7,8],[7,9]])
+solution(4, [[1,2],[2,3],[3,4]])

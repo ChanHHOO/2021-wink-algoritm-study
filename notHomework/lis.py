@@ -1,3 +1,7 @@
+import random
+a = ["n", "배그", "롤"]
+print(a[random.randint(1, 2)])
+
 def solution():
     n = int(input())
     nums = list(map(int, input().split(" ")))
@@ -19,3 +23,4 @@ def solution():
         sum[i] += low[i]
     print(max(sum)-1)
 solution()
+
