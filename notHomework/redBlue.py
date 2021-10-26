@@ -45,6 +45,8 @@ for i in range(n):
 
     for j in range(n):
 
+        
+
         if visit[i][j] == False:
             bfs(graph[i][j],i ,j, 0)
             c += 1
