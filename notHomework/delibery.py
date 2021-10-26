@@ -24,7 +24,6 @@ def solution(N, road, K):
 
     for i in range(1, N):
         if distance[i] <= K: answer += 1
-    print(answer)
     return answer
 
 solution(6,	[[1,2,1],[1,3,2],[2,3,2],[3,4,3],[3,5,2],[3,5,3],[5,6,1]]	, 4)
