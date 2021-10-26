@@ -15,7 +15,6 @@ def solution(nums):
                 if sw == 0:
                     print(nums[i] , nums[j] , nums[k])
                     answer += 1
-    print(answer)
 
     return answer
 
