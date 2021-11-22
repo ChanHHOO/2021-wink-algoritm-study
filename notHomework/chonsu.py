@@ -1,42 +1,31 @@
+from collections import deque
 import sys
+def bfs(graph, a, b, n):
+    visit = [False for _ in range(1, n+1)]
+    q = deque()
+    q.append(a)
+    while q:
+        print(q)
+        node = q.pop()
+        if visit[node - 1] == False:
+            visit[node-1] = True
+            q.extend(graph[node])
+
+
 n = int(sys.stdin.readline())
+
 a, b = map(int, sys.stdin.readline().split(" "))
+
 m = int(sys.stdin.readline())
-tree = {}
+
+graph = {}
+
+for i in range(1, n+1):
+    graph[i] = []
 
 for i in range(m):
-
     x, y = map(int, sys.stdin.readline().split(" "))
 
-    try:
-        tree[x].append(y)
-
-    except:
-        tree[x] = [y]
-    
-    try:
-        tree[y].append(x)
-    except:
-        tree[y] = [x]
-
-
-
-stack = []
-stack.append(sorted(tree.keys())[0])
-visited = []
-fam = []
-while stack:
-    node = stack.pop(0)
-    if node not in visited:
-        visited.append(node)
-        if n in tree[node]:
-            fam = tree[node]
-            
-        for i in reversed(tree[node]):
-            stack.insert(0, i)
-try:
-    answer = 1 if a in fam and b in fam else abs(visited.index(a) - visited.index(b))
-except:
-    answer = -1
-    
-print(answer)
+    graph[x].append(y)
+    graph[y].append(x)
+bfs(graph, a, b, n)

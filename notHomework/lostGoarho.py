@@ -9,7 +9,9 @@ for i in range(len(s)):
             nums.append(int(tmp))
         tmp = s[i]
 nums.append(int(tmp))
+
 hap = 0
+
 i = 0
 
 while i != len(nums):
@@ -22,6 +24,7 @@ while i != len(nums):
             hap += (nums[i]*-1)
             i += 1
     else:
-        hap += nums[i]
+        
+        ]
         i += 1
 print(hap)
