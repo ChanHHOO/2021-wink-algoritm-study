@@ -20,13 +20,18 @@ for i in range(n):
         elif tmp[j] == 2:
             chickens.append((i, j))
     graph.append(tmp)
-result = 9999919239912
+result = math.inf
 for chi in combinations(chickens, m):  # m개의 치킨집 선택
-    temp = 0            # 도시의 치킨 거리
-    for h in homes: 
-        chi_len = 999   # 각 집마다 치킨 거리
-        for j in range(m):
-            chi_len = min(chi_len, abs(h[0] - chi[j][0]) + abs(h[1] - chi[j][1]))
-        temp += chi_len
-    result = min(result, temp)
+    
+    cityDis = 0
+    for home in homes:
+        chickDis = math.inf
+        for store in chi:
+            tmp = abs(home[0] - store[0]) + abs(home[1] - store[1])
+            if chickDis > tmp:
+                chickDis = tmp
+        cityDis += chickDis
+    
+    if result > cityDis:
+        result = cityDis
 print(result)
